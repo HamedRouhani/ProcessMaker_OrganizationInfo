@@ -1,0 +1,164 @@
+$Registered_By_USR_UID = @@ExecuteID;
+$Requested_By_USR_UID = @@RequestID;
+$Time_Stamp = @@Time_Stamp;
+
+$ORG_Code = @@ORG_Code;
+$ORG_Name = @@ORG_Name;
+$ORG_Master_Code = @@ORG_Master_Code;
+$ORG_L1_Code = @@ORG_L1_Code;
+$ORG_L2_Code = @@ORG_L2_Code;
+$ORG_L3_Code = @@ORG_L3_Code;
+$ORG_L4_Code = @@ORG_L4_Code;
+$ORG_L5_Code = @@ORG_L5_Code;
+
+$ORG_Type = @@ORG_Type;
+$Ext_Int_ID = @@Ext_Int_ID;
+$ID_Detector = @@ID_Detector;
+
+if (@@Select_Reg_Type == '1') 
+{	
+$IsDelete = 0;
+$IsActive = 1;
+	
+$Insert_sql = "INSERT INTO PMT_TB100009 
+(Registered_By_USR_UID
+,Requested_By_USR_UID
+,Time_Stamp
+,IsDelete
+,IsActive
+,ORG_Code
+,ORG_Name
+,ORG_Master_Code
+,ORG_L1_Code
+,ORG_L2_Code
+,ORG_L3_Code
+,ORG_L4_Code
+,ORG_L5_Code
+,ORG_Type
+,Ext_Int_ID)
+
+VALUES 
+('$Registered_By_USR_UID'
+,'$Requested_By_USR_UID'
+,'$Time_Stamp'
+,'$IsDelete'
+,'$IsActive'
+,'$ORG_Code'
+,'$ORG_Name'
+,'$ORG_Master_Code'
+,'$ORG_L1_Code'
+,'$ORG_L2_Code'
+,'$ORG_L3_Code'
+,'$ORG_L4_Code'
+,'$ORG_L5_Code'
+,'$ORG_Type'
+,'$Ext_Int_ID')";
+
+executeQuery ($Insert_sql);
+}
+
+if (@@Select_Reg_Type =='2') 
+{
+	
+$IsDelete = 0;
+$IsActive = 1;
+	
+$Insert_sql = "INSERT INTO PMT_TB100009 
+(Registered_By_USR_UID
+,Requested_By_USR_UID
+,Time_Stamp
+,IsDelete
+,IsActive
+,ORG_Code
+,ORG_Name
+,ORG_Master_Code
+,ORG_L1_Code
+,ORG_L2_Code
+,ORG_L3_Code
+,ORG_L4_Code
+,ORG_L5_Code
+,ORG_Type
+,Ext_Int_ID)
+
+VALUES 
+('$Registered_By_USR_UID'
+,'$Requested_By_USR_UID'
+,'$Time_Stamp'
+,'$IsDelete'
+,'$IsActive'
+,'$ORG_Code'
+,'$ORG_Name'
+,'$ORG_Master_Code'
+,'$ORG_L1_Code'
+,'$ORG_L2_Code'
+,'$ORG_L3_Code'
+,'$ORG_L4_Code'
+,'$ORG_L5_Code'
+,'$ORG_Type'
+,'$Ext_Int_ID')";
+
+executeQuery ($Insert_sql);
+	
+$IsDelete = 0;
+$IsActive = 0;
+	
+$Update_sql = "UPDATE PMT_TB100009 SET
+IsDelete = '$IsDelete',
+IsActive = '$IsActive' 
+WHERE ID = '$ID_Detector'";
+	
+executeQuery ($Update_sql);
+}
+
+if (@@Select_Reg_Type == '3') 
+{
+	
+$IsDelete = 1;
+$IsActive = 0;
+	
+$Insert_sql = "INSERT INTO PMT_TB100009 
+(Registered_By_USR_UID
+,Requested_By_USR_UID
+,Time_Stamp
+,IsDelete
+,IsActive
+,ORG_Code
+,ORG_Name
+,ORG_Master_Code
+,ORG_L1_Code
+,ORG_L2_Code
+,ORG_L3_Code
+,ORG_L4_Code
+,ORG_L5_Code
+,ORG_Type
+,Ext_Int_ID)
+
+VALUES 
+('$Registered_By_USR_UID'
+,'$Requested_By_USR_UID'
+,'$Time_Stamp'
+,'$IsDelete'
+,'$IsActive'
+,'$ORG_Code'
+,'$ORG_Name'
+,'$ORG_Master_Code'
+,'$ORG_L1_Code'
+,'$ORG_L2_Code'
+,'$ORG_L3_Code'
+,'$ORG_L4_Code'
+,'$ORG_L5_Code'
+,'$ORG_Type'
+,'$Ext_Int_ID')";
+
+executeQuery ($Insert_sql);
+	
+$IsDelete = 0;
+$IsActive = 0;
+	
+$Update_sql = "UPDATE PMT_TB100009 SET
+IsDelete = '$IsDelete',
+IsActive = '$IsActive' 
+WHERE ID = '$ID_Detector'";
+	
+executeQuery ($Update_sql);
+}

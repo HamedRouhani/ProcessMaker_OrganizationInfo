@@ -1,0 +1,26 @@
+//‰„«Ì‘ ’›ÕÂ
+
+$("#28570556662dbadeac1b5e9005431708").css({"backgroundColor":"#ccccff"});
+$("#28570556662dbadeac1b5e9005431708").css({"border":"3px double #336699"});
+
+
+$("#title0000000001").css({"font-family":"b Titr","color":"#ffffff","background-color":"#336699","border-radius":"5px"});
+$("#title0000000001").css({"text-align":"center"});
+
+$("#subtitle0000000001").css({"font-family":"b Titr","color":"#ffffff","background-color":"#669933","border-radius":"5px"});
+$("#subtitle0000000001").css({"text-align":"center"});
+
+$("#submit0000000001").css({"font-family":"b titr"});
+
+
+// Å— ﬂ—œ‰ ﬁ”„  œ—ŒÊ«” /‰Ÿ—«   --- 
+
+if ($("#Description").getNumberRows() == 1 && $("#Description").getValue (1,1) =="") {
+	$('#Description').getControl($("#Description").getNumberRows(),'2').attr('disabled',true);
+  	$("#Description").setValue($("#txt_name").getValue(),$("#Description").getNumberRows(),'1');
+  }else{
+	$("#Description").addRow();
+	$('#Description').getControl($("#Description").getNumberRows(),'2').attr('disabled',true); 
+    $("#Description").setValue($("#txt_name").getValue(),$("#Description").getNumberRows(),'1');
+  };
+$("#Description").setValue("«ÿ·«⁄«  À»  ‘œÂ œ— ”Ì” „° „‘«ÂœÂ ê—œÌœ ...",$("#Description").getNumberRows(),'2');

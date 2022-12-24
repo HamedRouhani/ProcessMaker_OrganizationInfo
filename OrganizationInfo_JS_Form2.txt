@@ -1,0 +1,693 @@
+//‰„«Ì‘ ’›ÕÂ
+
+$("#54071044962d7a5d0ce3028024447747").css({"backgroundColor":"#ccccff"});
+$("#54071044962d7a5d0ce3028024447747").css({"border":"3px double #336699"});
+
+
+$("#title0000000001").css({"font-family":"b Titr","color":"#ffffff","background-color":"#336699","border-radius":"5px"});
+$("#title0000000001").css({"text-align":"center"});
+
+$("#submit0000000001").css({"font-family":"b titr"});
+
+$("#L0_Counter").hide();
+$("#L1_Counter").hide();
+$("#L2_Counter").hide();
+$("#L3_Counter").hide();
+$("#L4_Counter").hide();
+$("#L5_Counter").hide();
+$("#EX_Counter").hide();
+
+$("#ORG_Master_Code").hide();
+$("#ORG_L1_Code").hide();
+$("#ORG_L2_Code").hide();
+$("#ORG_L3_Code").hide();
+$("#ORG_L4_Code").hide();
+$("#ORG_L5_Code").hide();
+
+$("#Org_Type_Show").hide();
+$("#ORG_L1_Code_Show").hide();
+$("#ORG_L2_Code_Show").hide();
+$("#ORG_L3_Code_Show").hide();
+$("#ORG_L4_Code_Show").hide();
+$("#ORG_L5_Code_Show").hide();
+
+$("#ORG_Type").hide();
+$("#ORG_Type_Select").hide();
+$("#ORG_L1_Code_Select").hide();
+$("#ORG_L2_Code_Select").hide();
+$("#ORG_L3_Code_Select").hide();
+$("#ORG_L4_Code_Select").hide();
+$("#ORG_L5_Code_Select").hide();
+
+$("#Ext_Org_Type_Show").hide();
+$("#ORG_Code").hide();
+$("#ORG_Name").hide();
+$("#button_code").hide();
+$("#submit0000000001").hide();
+$("#Org_Level").hide();
+
+//Å— ﬂ—œ‰ gridview  --- 
+
+if ($("#Description").getNumberRows() == 1 && $("#Description").getValue (1,1) =="") {
+	$('#Description').getControl($("#Description").getNumberRows(),'2').attr('disabled',true);
+  	$("#Description").setValue($("#txt_name").getValue(),$("#Description").getNumberRows(),'1');
+  }else{
+	$("#Description").addRow();
+	$('#Description').getControl($("#Description").getNumberRows(),'2').attr('disabled',true); 
+    $("#Description").setValue($("#txt_name").getValue(),$("#Description").getNumberRows(),'1');
+  };
+
+// ﬂ‰ —· œ«Œ·Ì Ì« Œ«—ÃÌ »Êœ‰
+
+$("#Ext_Int_ID").setOnchange(function(EI) {
+  
+  EI = $("#Ext_Int_ID").getValue();
+  
+  switch (true) {
+      
+    case (EI == "N"):
+      $("#Org_Level").show();
+      $("#Ext_Org_Type_Show").hide();
+      $("#ORG_Code").hide();
+      $("#ORG_Code").setValue("");
+      $("#ORG_Name").hide();
+      $("#ORG_Name").setValue("");
+      $("#button_code").hide();
+      $("#submit0000000001").hide();
+      $("#Org_Level").show();
+      break;
+      
+    case (EI == "X"):
+      
+      $("#Org_Level").hide();
+      $("#ORG_Master_Code").hide();
+	  $("#ORG_L1_Code").hide();
+	  $("#ORG_L2_Code").hide();
+	  $("#ORG_L3_Code").hide();
+	  $("#ORG_L4_Code").hide();
+	  $("#ORG_L5_Code").hide();
+      
+      $("#Org_Type_Show").hide();
+      $("#ORG_L1_Code_Show").hide();
+      $("#ORG_L2_Code_Show").hide();
+      $("#ORG_L3_Code_Show").hide();
+      $("#ORG_L4_Code_Show").hide();
+      $("#ORG_L5_Code_Show").hide();
+      
+      $("#ORG_Type").hide();
+      $("#ORG_Type_Select").hide();
+      $("#ORG_L1_Code_Select").hide();
+      $("#ORG_L2_Code_Select").hide();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Ext_Org_Type_Show").show();
+      $("#ORG_Code").show();
+      $("#ORG_Code").setValue("");
+      $("#ORG_Name").show();
+      $("#ORG_Name").setValue("");
+      $("#button_code").show();
+      $("#submit0000000001").hide();
+      $("#Org_Level").hide();
+      
+      break;      
+  }
+   
+});
+
+
+//  ﬂ‰ —· Ê÷⁄Ì  «‰ Œ«» ‰Ê⁄ ”«“„«‰ œ«Œ·Ì
+
+$("#ORG_Type").setOnchange(function(OT) {
+  
+  OT = $("#ORG_Type").getValue();
+  $("#submit0000000001").hide();
+  $("#Description").setValue("",$("#Description").getNumberRows(),'2');
+  $("#ORG_Code").setValue("");
+  
+  switch(true){
+      
+    case(OT != ""):
+      $('#ORG_Type').css("background-color", "");
+      break;
+      
+    case (OT == ""): 
+      alert ("»«Ì” Ì ‰Ê⁄ ”«“„«‰ «‰ Œ«» ‘Êœ !");
+      $('#ORG_Type').css("background-color", "orange");
+      break;
+      
+  }
+});
+
+
+// ﬂ‰ —· ‰„«Ì‘ ”«“„«‰° Ê«Õœ Ê “Ì— Ê«Õœ
+
+$("#Org_Level").setOnchange(function(OL) {
+  
+  OL = $("#Org_Level").getValue();
+  $("#ORG_Code").setValue("");
+  $("#submit0000000001").hide();
+  $("#Description").setValue("",$("#Description").getNumberRows(),'2');
+  
+  switch (true) {
+      
+    case ( OL == "" ):
+      
+      $("#ORG_Type").hide();
+	  $("#ORG_Type_Select").hide();
+      $("#ORG_L1_Code_Select").hide();
+      $("#ORG_L2_Code_Select").hide();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").hide();
+	  $("#ORG_L1_Code_Show").hide();
+	  $("#ORG_L2_Code_Show").hide();
+	  $("#ORG_L3_Code_Show").hide();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+      
+      $("#ORG_Code").hide();
+	  $("#ORG_Name").hide();
+      $("#button_code").hide();
+      $("#ORG_Code").setValue("");
+      $("#submit0000000001").hide();
+      break;
+      
+    case ( OL == 1 ):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").hide();
+      $("#ORG_L1_Code_Select").hide();
+      $("#ORG_L2_Code_Select").hide();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").hide();
+	  $("#ORG_L1_Code_Show").hide();
+	  $("#ORG_L2_Code_Show").hide();
+	  $("#ORG_L3_Code_Show").hide();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+      
+      $("#ORG_Code").show();
+	  $("#ORG_Name").show();
+      $("#button_code").show();
+      $("#ORG_Code").setValue("");
+      $("#submit0000000001").hide();
+      $("#ORG_Type_Select").setValue("");
+      break;
+      
+    case ( OL == 2 ):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").hide();
+      $("#ORG_L2_Code_Select").hide();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").hide();
+	  $("#ORG_L2_Code_Show").hide();
+	  $("#ORG_L3_Code_Show").hide();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+      
+      $("#ORG_Code").show();
+	  $("#ORG_Name").show();
+      $("#button_code").show();
+      $("#ORG_Code").setValue("");
+      $("#submit0000000001").hide();
+      break;  
+      
+  }
+  
+});
+
+// ‰„«Ì‘ ”ÿÕ ’›—
+
+$("#ORG_Type_Select").setOnchange(function(OTSE,OTSW,OL) {
+  
+  OTSE = $("#ORG_Type_Select").getValue();
+  OTSW = $("#Org_Type_Show").getValue();
+  OL = $("#Org_Level").getValue();
+  
+  $("#ORG_Code").show();
+  $("#ORG_Name").show();
+  $("#button_code").show();
+  $("#ORG_Code").setValue("");
+  $("#submit0000000001").hide();
+  $("#Description").setValue("",$("#Description").getNumberRows(),'2');
+  
+  if (OL == 2){
+    
+  switch(true){
+      
+    case(OTSE != ""):
+      $('#ORG_Type_Select').css("background-color", "");
+      break;
+      
+    case (OTSE == ""): 
+      alert ("»«Ì” Ì ”«“„«‰ «‰ Œ«» ‘Êœ !");
+      $('#ORG_Type_Select').css("background-color", "orange");
+      break;
+      
+  } 
+  } else {
+    
+      $('#ORG_Type_Select').css("background-color", "");
+  }
+  
+  switch (true) {
+      
+    case ( OTSE == "" && OL != 1):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").hide();
+      $("#ORG_L2_Code_Select").hide();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").hide();
+	  $("#ORG_L2_Code_Show").hide();
+	  $("#ORG_L3_Code_Show").hide();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+      
+      break;
+      
+    case ( OTSE != "" && OTSW != "" ):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").show();
+      $("#ORG_L2_Code_Select").hide();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").show();
+	  $("#ORG_L2_Code_Show").hide();
+	  $("#ORG_L3_Code_Show").hide();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+      
+      break;
+      
+  }
+  
+});
+
+
+// ‰„«Ì‘ ”ÿÕ Ìﬂ
+
+$("#ORG_L1_Code_Select").setOnchange(function(OLCSE,OLCSW) {
+  
+  OLCSE = $("#ORG_L1_Code_Select").getValue();
+  OLCSW = $("#ORG_L1_Code_Show").getValue();
+  
+  $("#ORG_Code").show();
+  $("#ORG_Name").show();
+  $("#button_code").show();
+  $("#ORG_Code").setValue("");
+  $("#submit0000000001").hide();
+    
+  switch (true) {
+      
+    case ( OLCSE == "" ):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").show();
+      $("#ORG_L2_Code_Select").hide();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").show();
+	  $("#ORG_L2_Code_Show").hide();
+	  $("#ORG_L3_Code_Show").hide();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+
+      break;
+      
+    case ( OLCSE != "" && OLCSW != ""):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").show();
+      $("#ORG_L2_Code_Select").show();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").show();
+	  $("#ORG_L2_Code_Show").show();
+	  $("#ORG_L3_Code_Show").hide();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+      
+      break;
+      
+  }
+  
+});
+
+// ‰„«Ì‘ ”ÿÕ œÊ
+
+$("#ORG_L2_Code_Select").setOnchange(function(OLCSE,OLCSW) {
+  
+  OLCSE = $("#ORG_L2_Code_Select").getValue();
+  OLCSW = $("#ORG_L2_Code_Show").getValue();
+  
+  $("#ORG_Code").show();
+  $("#ORG_Name").show();
+  $("#button_code").show();
+  $("#ORG_Code").setValue("");
+  $("#submit0000000001").hide();
+    
+  switch (true) {
+      
+    case ( OLCSE == "" ):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").show();
+      $("#ORG_L2_Code_Select").show();
+      $("#ORG_L3_Code_Select").hide();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").show();
+	  $("#ORG_L2_Code_Show").show();
+	  $("#ORG_L3_Code_Show").hide();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+
+      break;
+      
+    case ( OLCSE != "" && OLCSW != ""):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").show();
+      $("#ORG_L2_Code_Select").show();
+      $("#ORG_L3_Code_Select").show();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").show();
+	  $("#ORG_L2_Code_Show").show();
+	  $("#ORG_L3_Code_Show").show();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+      
+      break;
+      
+  }
+  
+});
+
+// ‰„«Ì‘ ”ÿÕ ”Â
+
+$("#ORG_L3_Code_Select").setOnchange(function(OLCSE,OLCSW) {
+  
+  OLCSE = $("#ORG_L3_Code_Select").getValue();
+  OLCSW = $("#ORG_L3_Code_Show").getValue();
+  
+  $("#ORG_Code").show();
+  $("#ORG_Name").show();
+  $("#button_code").show();
+  $("#ORG_Code").setValue("");
+  $("#submit0000000001").hide();
+    
+  switch (true) {
+      
+    case ( OLCSE == "" ):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").show();
+      $("#ORG_L2_Code_Select").show();
+      $("#ORG_L3_Code_Select").show();
+      $("#ORG_L4_Code_Select").hide();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").show();
+	  $("#ORG_L2_Code_Show").show();
+	  $("#ORG_L3_Code_Show").show();
+	  $("#ORG_L4_Code_Show").hide();
+	  $("#ORG_L5_Code_Show").hide();
+
+      break;
+      
+    case ( OLCSE != "" && OLCSW != ""):
+      
+      $("#ORG_Type").show();
+	  $("#ORG_Type_Select").show();
+      $("#ORG_L1_Code_Select").show();
+      $("#ORG_L2_Code_Select").show();
+      $("#ORG_L3_Code_Select").show();
+      $("#ORG_L4_Code_Select").show();
+      $("#ORG_L5_Code_Select").hide();
+      
+      $("#Org_Type_Show").show();
+	  $("#ORG_L1_Code_Show").show();
+	  $("#ORG_L2_Code_Show").show();
+	  $("#ORG_L3_Code_Show").show();
+	  $("#ORG_L4_Code_Show").show();
+	  $("#ORG_L5_Code_Show").hide();
+      
+      break;
+      
+  }
+  
+});
+
+// «ÌÃ«œ ﬂœ ”«“„«‰Ì
+
+$("#button_code").find("button").click(function(OL,OT,EX,EXC,L0,L1,L2,L3,L4,L5,OTS,OL1,OL2,OL3,OL4,OL5) {
+
+OL = $("#Org_Level").getValue();
+OT = $("#ORG_Type").getValue();
+EX = $("#Ext_Int_ID").getValue();
+L0 = $("#L0_Counter").getValue();
+L1 = $("#L1_Counter").getValue();
+L2 = $("#L2_Counter").getValue();
+L3 = $("#L3_Counter").getValue();
+L4 = $("#L4_Counter").getValue();
+L5 = $("#L5_Counter").getValue();
+  
+EXC = $("#EX_Counter").getValue();  
+  
+OTS = $("#ORG_Type_Select").getValue(); 
+OL1 = $("#ORG_L1_Code_Select").getValue();
+OL2 = $("#ORG_L2_Code_Select").getValue();  
+OL3 = $("#ORG_L3_Code_Select").getValue();  
+OL4 = $("#ORG_L4_Code_Select").getValue();  
+OL5 = $("#ORG_L5_Code_Select").getValue(); 
+
+ if (OL == 1 && EX == "N") {
+
+   switch (true){
+       
+     case (OT == "M"):
+       
+       if ( L0 < 9){
+     	 $("#ORG_Code").setValue("00"+(parseInt(L0)+1)+"00000");
+       } else {
+         $("#ORG_Code").setValue("0"+(parseInt(L0)+1)+"00000");
+       }
+        $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+        $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+        $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+        $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+        $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+        $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+        $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+        $("#submit0000000001").show();
+        break;
+            
+     case (OT == "D"):
+     	$("#ORG_Code").setValue((parseInt(L0)+101)+"00000");
+        $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+        $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+        $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+        $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+        $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+        $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+        $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+        $("#submit0000000001").show();
+        break;
+       
+     case (OT == "C"):
+     	$("#ORG_Code").setValue((parseInt(L0)+501)+"00000");
+        $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+        $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+        $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+        $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+        $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+        $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+        $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+        $("#submit0000000001").show();
+        break;
+       
+     case (OT == "P"):
+     	$("#ORG_Code").setValue((parseInt(L0)+701)+"00000");
+        $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+        $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+        $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+        $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+        $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+        $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+        $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+        $("#submit0000000001").show();
+        break;
+       
+     case (OT == ""):
+        alert ("»«Ì” Ì ‰Ê⁄ ”«“„«‰ «‰ Œ«» ‘Êœ !");
+        $('#ORG_Type').css("background-color", "orange");
+        $("#Description").setValue("",$("#Description").getNumberRows(),'2');
+        $("#submit0000000001").hide();
+        $("#ORG_Code").setValue("");
+        break;       
+     }
+   
+ } else if (OL == 2 && EX == "N"){
+   
+   switch(true){
+       
+     case( OTS == "" ):
+       alert (" »«Ì” Ì ”«“„«‰ «‰ Œ«» ‘Êœ ! »œÊ‰ «‰ Œ«» ”«“„«‰ «„ﬂ«‰ «ÌÃ«œ Ê«Õœ ÊÃÊœ ‰œ«—œ ... ");
+       $('#ORG_Type_Select').css("background-color", "orange");
+       $("#Description").setValue("",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").hide();
+       $("#ORG_Code").setValue("");
+       break;
+       
+     case( OTS != "" && OL1 == "" && OL2 == "" && OL3 == "" && OL4 == "" && OL5 == ""):
+       
+       $("#ORG_Code").setValue(OTS+(parseInt(L1)+1)+"0000");
+       $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+       $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+       $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+       $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+       $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+       $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+       $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").show();
+       break;       
+ 
+     case( OTS != "" && OL1 != "" && OL2 == "" && OL3 == "" && OL4 == "" && OL5 == "" ):
+       
+       $("#ORG_Code").setValue(OTS+OL1+(parseInt(L2)+1)+"000");
+       $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+       $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+       $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+       $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+       $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+       $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+       $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").show();
+       break;  
+       
+     case( OTS != "" && OL1 != "" && OL2 != "" && OL3 == "" && OL4 == "" && OL5 == "" ):
+       
+       $("#ORG_Code").setValue(OTS+OL1+OL2+(parseInt(L3)+1)+"00");
+       $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+       $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+       $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+       $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+       $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+       $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+       $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").show();
+       break;       
+       
+     case( OTS != "" && OL1 != "" && OL2 != "" && OL3 != "" && OL4 == "" && OL5 == "" ):
+       
+       $("#ORG_Code").setValue(OTS+OL1+OL2+OL3+(parseInt(L4)+1)+"0");
+       $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+       $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+       $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+       $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+       $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+       $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+       $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").show();
+       break;
+       
+     case( OTS != "" && OL1 != "" && OL2 != "" && OL3 != "" && OL4 != "" && OL5 == "" ):
+       
+       $("#ORG_Code").setValue(OTS+OL1+OL2+OL3+OL4+(parseInt(L5)+1));
+       $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+       $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+       $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+       $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+       $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+       $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+       $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").show();
+       break;         
+              
+   }
+ } else if (EX == "X") {
+   
+   switch (true) {
+       
+     case ( EXC < 9):
+       $("#ORG_Code").setValue("00"+(parseInt(EXC)+1)+"00000");
+       $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+       $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+       $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+       $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+       $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+       $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+       $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").show();
+       break;
+     
+     case ( EXC > 8 && EXC < 99):
+       $("#ORG_Code").setValue("0"+(parseInt(EXC)+1)+"00000");
+       $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+       $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+       $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+       $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+       $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+       $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+       $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").show();
+       break;
+     
+     case ( EXC > 98):
+       $("#ORG_Code").setValue((parseInt(EXC)+1)+"00000");
+       $("#ORG_Master_Code").setValue($("#ORG_Code").getValue().substring(0,3));
+       $("#ORG_L1_Code").setValue($("#ORG_Code").getValue().substring(3,4));
+       $("#ORG_L2_Code").setValue($("#ORG_Code").getValue().substring(4,5));
+       $("#ORG_L3_Code").setValue($("#ORG_Code").getValue().substring(5,6));
+       $("#ORG_L4_Code").setValue($("#ORG_Code").getValue().substring(6,7));
+       $("#ORG_L5_Code").setValue($("#ORG_Code").getValue().substring(7,8));
+       $("#Description").setValue("ﬂœ «’·Ì ÃÂ  À»  œ— Å«Ìê«Â œ«œÂ  Ê·Ìœ ê—œÌœ  ....",$("#Description").getNumberRows(),'2');
+       $("#submit0000000001").show();
+       break;
+       
+   }
+       
+ }
+   
+});
